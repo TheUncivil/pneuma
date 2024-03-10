@@ -13,7 +13,7 @@ namespace pneuma
 ////////////////////////////////////////////////////////////////////////////////////
 
 core::Core::Core(const rclcpp::NodeOptions & options)
- : rclcpp_lifecycle::LifecycleNode("pneuma_core", options)
+ : rclcpp_lifecycle::LifecycleNode("pneuma_core_default_name", options)
 {
     RCLCPP_INFO(get_logger(), "constructing");
 }
