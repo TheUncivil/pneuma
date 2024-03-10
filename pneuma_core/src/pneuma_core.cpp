@@ -6,17 +6,20 @@ Licensed under Apache 2.0
 #include "pneuma_core/pneuma_core.hpp"
 
 
+namespace pneuma
+{
+
 // constructor/destructor
 ////////////////////////////////////////////////////////////////////////////////////
 
-pneuma::core::Core::Core(const rclcpp::NodeOptions & options)
+core::Core::Core(const rclcpp::NodeOptions & options)
  : rclcpp_lifecycle::LifecycleNode("pneuma_core", options)
 {
     RCLCPP_INFO(get_logger(), "constructing");
 }
 
 
-pneuma::core::Core::~Core()
+core::Core::~Core()
 {
     RCLCPP_INFO(get_logger(), "deconstructing");
 }
@@ -24,7 +27,7 @@ pneuma::core::Core::~Core()
 // lifecycle transition functions
 ////////////////////////////////////////////////////////////////////////////////////
 
-roslf_callbackreturn pneuma::core::Core::on_configure(const rclcpp_lifecycle::State & state_prev)
+roslf_callbackreturn core::Core::on_configure(const rclcpp_lifecycle::State & state_prev)
 {
     RCLCPP_INFO(get_logger(), "configuring");
 
@@ -32,7 +35,7 @@ roslf_callbackreturn pneuma::core::Core::on_configure(const rclcpp_lifecycle::St
 }
 
 
-roslf_callbackreturn pneuma::core::Core::on_activate(const rclcpp_lifecycle::State & state_prev)
+roslf_callbackreturn core::Core::on_activate(const rclcpp_lifecycle::State & state_prev)
 {
     RCLCPP_INFO(get_logger(), "activating");
 
@@ -40,7 +43,7 @@ roslf_callbackreturn pneuma::core::Core::on_activate(const rclcpp_lifecycle::Sta
 }
 
 
-roslf_callbackreturn pneuma::core::Core::on_deactivate(const rclcpp_lifecycle::State & state_prev)
+roslf_callbackreturn core::Core::on_deactivate(const rclcpp_lifecycle::State & state_prev)
 {
     RCLCPP_INFO(get_logger(), "deactivating");
 
@@ -48,7 +51,7 @@ roslf_callbackreturn pneuma::core::Core::on_deactivate(const rclcpp_lifecycle::S
 }
 
 
-roslf_callbackreturn pneuma::core::Core::on_shutdown(const rclcpp_lifecycle::State & state_prev)
+roslf_callbackreturn core::Core::on_shutdown(const rclcpp_lifecycle::State & state_prev)
 {
     RCLCPP_INFO(get_logger(), "shutting down");
 
@@ -56,7 +59,7 @@ roslf_callbackreturn pneuma::core::Core::on_shutdown(const rclcpp_lifecycle::Sta
 }
 
 
-roslf_callbackreturn pneuma::core::Core::on_cleanup(const rclcpp_lifecycle::State & state_prev)
+roslf_callbackreturn core::Core::on_cleanup(const rclcpp_lifecycle::State & state_prev)
 {
     RCLCPP_INFO(get_logger(), "cleaning up");
 
@@ -64,6 +67,8 @@ roslf_callbackreturn pneuma::core::Core::on_cleanup(const rclcpp_lifecycle::Stat
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
+
+} // namespace pneuma
 
 #include "rclcpp_components/register_node_macro.hpp"
 RCLCPP_COMPONENTS_REGISTER_NODE(pneuma::core::Core)
