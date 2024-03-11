@@ -15,6 +15,7 @@ def generate_launch_description():
             executable='component_container',
             composable_node_descriptions=[
                 ComposableNode(
+                    namespace='',
                     package='pneuma_core',
                     plugin='pneuma::core::Core',
                     name='pneuma_core'),

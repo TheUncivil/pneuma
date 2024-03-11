@@ -15,6 +15,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
+find_package(pneuma_interfaces REQUIRED)
 
 include_directories(include)
 
@@ -22,14 +23,18 @@ include_directories(include)
 set(node_plugins "")
 
 add_library(pneuma_core SHARED
-  src/pneuma_core.cpp)
+  src/core_main.cpp
+  src/core_ops.cpp
+  src/core_par.cpp)
 
 #target_compile_definitions(pneuma_core
 #  PRIVATE "COMPOSITION_BUILDING_DLL")
 ament_target_dependencies(pneuma_core
   rclcpp
   rclcpp_components
+  pneuma_interfaces
   )
+
 rclcpp_components_register_nodes(pneuma_core "pneuma::core::Core")
 
 set(node_plugins "${node_plugins}pneuma_core;$<TARGET_FILE:pneuma_core>\n")
