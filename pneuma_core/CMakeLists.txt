@@ -15,7 +15,6 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
-find_package(rclcpp_lifecycle REQUIRED)
 
 include_directories(include)
 
@@ -30,7 +29,6 @@ add_library(pneuma_core SHARED
 ament_target_dependencies(pneuma_core
   rclcpp
   rclcpp_components
-  rclcpp_lifecycle
   )
 rclcpp_components_register_nodes(pneuma_core "pneuma::core::Core")
 
