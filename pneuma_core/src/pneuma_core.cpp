@@ -13,7 +13,7 @@ namespace pneuma
 ////////////////////////////////////////////////////////////////////////////////////
 
 core::Core::Core(const rclcpp::NodeOptions & options)
- : rclcpp_lifecycle::LifecycleNode("pneuma_core_default_name", options)
+ : rclcpp::Node("pneuma_core_default_name", options)
 {
     RCLCPP_INFO(get_logger(), "constructing");
 }
@@ -22,48 +22,6 @@ core::Core::Core(const rclcpp::NodeOptions & options)
 core::Core::~Core()
 {
     RCLCPP_INFO(get_logger(), "deconstructing");
-}
-
-// lifecycle transition functions
-////////////////////////////////////////////////////////////////////////////////////
-
-roslf_callbackreturn core::Core::on_configure(const rclcpp_lifecycle::State & state_prev)
-{
-    RCLCPP_INFO(get_logger(), "configuring");
-
-    return roslf_callbackreturn::SUCCESS;
-}
-
-
-roslf_callbackreturn core::Core::on_activate(const rclcpp_lifecycle::State & state_prev)
-{
-    RCLCPP_INFO(get_logger(), "activating");
-
-    return roslf_callbackreturn::SUCCESS;
-}
-
-
-roslf_callbackreturn core::Core::on_deactivate(const rclcpp_lifecycle::State & state_prev)
-{
-    RCLCPP_INFO(get_logger(), "deactivating");
-
-    return roslf_callbackreturn::SUCCESS;
-}
-
-
-roslf_callbackreturn core::Core::on_shutdown(const rclcpp_lifecycle::State & state_prev)
-{
-    RCLCPP_INFO(get_logger(), "shutting down");
-
-    return roslf_callbackreturn::SUCCESS;
-}
-
-
-roslf_callbackreturn core::Core::on_cleanup(const rclcpp_lifecycle::State & state_prev)
-{
-    RCLCPP_INFO(get_logger(), "cleaning up");
-
-    return roslf_callbackreturn::SUCCESS;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
