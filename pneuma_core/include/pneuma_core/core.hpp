@@ -8,6 +8,9 @@ Licensed under Apache 2.0
 
 #include "rclcpp/rclcpp.hpp"
 
+#include "pneuma_utils/module.hpp"
+#include "pneuma_utils/module_types.hpp"
+
 
 namespace pneuma
 {
@@ -21,12 +24,15 @@ class Core : public rclcpp::Node
         explicit Core(const rclcpp::NodeOptions & options);
         ~Core();
         
-    private:
-        // declare/get parameters
+    private:        
+        // handle module parameters
+        void moduleParam();
+        
+        // declare/get basic parameters
         void getParam();
         void declareParam();
 
-        std::map<std::string, int32_t> registered_nodes_;
+        std::vector<std::vector<pneuma::module>> module_registry_;
 };
 
 } // namespace core

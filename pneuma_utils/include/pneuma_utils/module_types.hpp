@@ -13,8 +13,7 @@ namespace eModuleType
 {
 enum eModuleType : uint8_t
 {
-    UNDEFINED = 0,
-    CORE,
+    CORE = 0,
     IO,
     LIM,
     OUT_OF_RANGE

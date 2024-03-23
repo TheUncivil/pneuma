@@ -14,6 +14,9 @@ core::Core::Core(const rclcpp::NodeOptions & options)
 {
     RCLCPP_INFO(get_logger(), "constructing");
 
+    module_registry_.resize(pneuma::eModuleType::OUT_OF_RANGE);
+
+    moduleParam();
     declareParam();
     getParam();
 }
